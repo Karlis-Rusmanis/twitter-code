@@ -4,7 +4,9 @@ body {
 }
 
 .side-menu {
-    width: 360px;
+    width: 15.625em;
+    position: fixed;
+    left: 7.8125em;
     display: flex;
     flex-direction: column;
     background: #17202A;
@@ -12,16 +14,35 @@ body {
     a {
         display: flex;
         align-items: center;
-        height: 55px;
+        height: 3.4375em;
         text-decoration: none;
-        padding-left: 105px;
-
-        &:hover {
-            background: #11171f;
-        }
 
         &:focus {
             background: #11171f;
+            border-radius: 3.4375em;
+        }
+
+        &:focus svg * {
+            fill: #4BA0EC;
+        }
+
+        &:focus .text {
+            padding-left: .375em;
+        }
+
+        &:hover {
+            background: #11171f;
+            border-radius: 3.4375em;
+        }
+
+        &:hover svg *{
+            fill: #4BA0EC;
+            transition: .2s;
+        }
+
+        &:hover .text {
+            padding-left: .375em;
+            transition: .2s;
         }
     }
 
@@ -29,31 +50,79 @@ body {
         color: white;
         font-family: Helvetica;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 1.25em;
     }
     
     .icon {
-        margin-right: 20px;
+        margin-right: 1.25em;
+        padding-left: 1.25em;
     }
 
     &--closed {
-        width: 200px;
+        width: 50px;
+
+        .text {
+            display: none;
+        }
+
+        .tw {
+            display: none;
+        }
+
+        a {
+            justify-content: center;
+            width: 41px;
+        }
+    }
+
+}
+    
+.tw {
+    margin-top: 1.25em;
+
+    a.tweet-button {
+        display: inline-block;
+        width: 85%;
+        height: 3.125em;
+        background: #4BA0EC;
+        border-radius: 6.25em;
+        text-decoration: none;
+
+        .tweet-text {
+            color: white;
+            font-family: Helvetica;
+            font-weight: bold;
+            font-size: 0.9375em;
+            position: relative;
+            float: left;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    &:hover .tweet-text {
+        font-size: 1.125em;
+        transition: .1s;
+    }
     }
 }
 
-.tweet-button {
-    display: inline-block;
-    width: 211px;
-    height: 50px;
-    background: #4BA0EC;
-    border-radius: 100px;
-    text-decoration: none;
-    text-align: center;
-
-    .tweet-text {
-        color: white;
+@media only screen and (max-width: 950px) {
+    .side-menu {
+        left: .5em;
     }
 }
 
+@media only screen and (max-width: 800px) {
+    .side-menu {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .side-menu {
+        font-size: 12px;
+    }
+}
 
 
